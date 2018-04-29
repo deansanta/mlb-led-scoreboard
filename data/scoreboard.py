@@ -20,6 +20,7 @@ class Scoreboard:
     self.pitches = Pitches(overview)
     self.outs = Outs(overview)
     self.game_status = overview.status
+    self.nohitter = True if overview.is_no_hitter == 'Y' else False
 
   def __str__(self):
     s = "<{} {}> {} ({}) @ {} ({}); Status: {}; Inning: (Number: {}; State: {}); B:{} S:{} O:{}; Bases: {}".format(

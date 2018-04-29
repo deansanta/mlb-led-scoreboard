@@ -17,6 +17,7 @@ class Scoreboard:
 
     if self.scoreboard.inning.state == Inning.TOP or self.scoreboard.inning.state == Inning.BOTTOM:
       coords = self.config.coords
-      PitchesRenderer(self.canvas, self.scoreboard.pitches, coords["pitches"]).render()
-      OutsRenderer(self.canvas, self.scoreboard.outs, coords["outs"]).render()
+      nohitter = self.scoreboard.nohitter if self.scoreboard.inning.number > 5 else False
+      PitchesRenderer(self.canvas, self.scoreboard.pitches, coords["pitches"], nohitter).render()
+      OutsRenderer(self.canvas, self.scoreboard.outs, coords["outs"], nohitter).render()
       BasesRenderer(self.canvas, self.scoreboard.bases, coords["bases"]).render()
